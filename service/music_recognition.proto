@@ -1,0 +1,16 @@
+syntax="proto3";
+
+package service;
+
+service MusicRecoginitonService {
+  rpc RecognizeSong(RecognizeSongRequest) returns (RecognizeSongResponse);
+}
+
+message RecognizeSongRequest {
+    bytes audio_clip = 1; 
+}
+
+message RecognizeSongResponse{
+    string song_name = 1;
+    string artist = 2;
+}
