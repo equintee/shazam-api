@@ -9,7 +9,7 @@ class MusicRecognitionService(MusicRecoginitonServiceServicer):
         loop = asyncio.new_event_loop()
         song = loop.run_until_complete(shazam.recognize(request.audio_clip))
         if "track" not in song:
-            return None
+            return pb2.RecognizeSongResponse()
         else:
             track = song["track"]
             song_name = track["title"]
